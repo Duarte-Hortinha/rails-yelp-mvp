@@ -1,0 +1,16 @@
+<ul>
+  <% @restaurants.each do |restaurant| %>
+    <li>
+    <span class="text-info"><%= restaurant.name %></span> | <%=
+    link_to "Delete",
+    restaurant_path(restaurant),
+    data: {turbo_method: :delete, turbo_confirm: "Are you sure you want to delete?"} %> | <%=
+    link_to "Create a new review for this restaurant", new_restaurant_review_path(restaurant) %>
+    </li>
+    <!-- <li><%= link_to restaurant.name, restaurant_path(restaurant) %></li> -->
+  <% end %>
+</ul>
+
+<h2 class="text-primary">Add a new restaurant to the list! ⬇️
+<p class="text-secondary"><%= link_to "Here", new_restaurant_path %></p>
+</h2>

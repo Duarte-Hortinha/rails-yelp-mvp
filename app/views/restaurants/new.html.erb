@@ -1,0 +1,8 @@
+<span class="m-3"><%= simple_form_for(@restaurant) do |f| %>
+  <%= f.input :name %>
+  <%= f.input :address %>
+  <%= f.input :phone_number %>
+  <%= f.input :category %>
+  <%= f.submit %>
+<% end %></span>
+<h2 class="text-primary m-4"><%= link_to "Go back to list of restaurants", root_path %></h2>
