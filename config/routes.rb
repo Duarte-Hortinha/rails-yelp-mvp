@@ -9,7 +9,7 @@ Rails.application.routes.draw do
   # root "posts#index"
   root "restaurants#index"
   resources :restaurants do # É o mesmo que fazer o que está abaixo:
-    resources :reviews, only: [:new, :create]
+    resources :reviews, only: [:new, :create, :show, :index]
   end
 
   # get "tasks", to: "tasks#index"

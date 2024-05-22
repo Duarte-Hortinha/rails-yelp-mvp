@@ -16,9 +16,12 @@ class RestaurantsController < ApplicationController
 
   def create
     @restaurant = Restaurant.new(restaurant_params)
-    @restaurant.save
+    if @restaurant.save
+      redirect_to restaurants_path, notice: "Restaurant created!"
+    else
+      render :new, status: :unprocessable_entity # 422
     # No need for app/views/restaurants/create.html.erb
-    redirect_to restaurants_path
+    end
   end
 
   def edit
@@ -27,7 +30,7 @@ class RestaurantsController < ApplicationController
 
   def update
     @restaurant = Restaurant.find(params[:id])
-    @restaurant.update(set_restaurant)
+    @restaurant.update(restaurant_params)
     # No need for app/views/restaurants/update.html.erb
     # redirect_to restaurant_path(@restaurant)
   end
@@ -41,9 +44,9 @@ class RestaurantsController < ApplicationController
 
   private
 
-  def set_restaurant
-    @restaurant = Restaurant.find(params[:id])
-  end
+  # def set_restaurant
+  #   @restaurant = Restaurant.find(params[:id])
+  # end
 
   def restaurant_params
     params.require(:restaurant).permit(:name, :address, :phone_number, :category)

@@ -1,0 +1,6 @@
+<ul>
+  <% @reviews.each do |review| %>           <!-- displaying yummy yummy, not properly working, solve tomorrow -->
+    <li> <%= review.content %></li>
+    <% end %>
+</ul>
+<h2 class="text-primary m-4"><%= link_to "Go back to list of restaurants", root_path %></h2>

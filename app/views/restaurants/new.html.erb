@@ -2,7 +2,7 @@
   <%= f.input :name %>
   <%= f.input :address %>
   <%= f.input :phone_number %>
-  <%= f.input :category %>
+  <%= f.input :category, collection: %w(chinese italian japanese french belgian) %>
   <%= f.submit %>
 <% end %></span>
 <h2 class="text-primary m-4"><%= link_to "Go back to list of restaurants", root_path %></h2>
